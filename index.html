@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project NW2 · 2-Page Investment Teaser</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#0D1B2A; --ink-mid:#2C4158; --ink-light:#4A6070;
+  --parchment:#F7F2EA; --parchment-d:#EDE7DB;
+  --gold:#9B7B2B; --gold-l:#C49A44; --gold-pale:#F4EDD4; --gold-rule:#B08D38;
+  --white:#FFFFFF; --border:#DDD5C6; --muted:#8A8278;
+  --green:#2A6944; --green-bg:#EAF4EE;
+}
+
+/* Core Setup */
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+body { 
+  font-family: 'Instrument Sans', sans-serif; 
+  background: #E8E2D9; 
+  color: var(--ink); 
+  line-height: 1.5; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 30px; 
+  padding: 30px 15px; 
+}
+
+/* Responsive Page Containers */
+.a4-page {
+  width: 100%;
+  max-width: 210mm; /* A4 width limit */
+  background: var(--white);
+  box-shadow: 0 15px 40px rgba(13,27,42,.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+p { font-size: 11pt; color: var(--ink-light); margin-bottom: 12px; }
+ul { margin-left: 16pt; font-size: 11pt; color: var(--ink-light); margin-bottom: 12px; }
+li { margin-bottom: 6px; }
+li strong { color: var(--ink); font-weight: 600; }
+
+/* Topbar */
+.topbar { background: var(--white); border-bottom: 1px solid var(--border); padding: 25px 30px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-box { width: 40px; height: 40px; background: var(--ink); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.brand-box span { font-family: 'Cormorant Garamond', serif; color: var(--gold-l); font-size: 16pt; font-weight: 700; letter-spacing: 1px; }
+.brand-name { font-size: 10pt; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--ink); display: block; }
+.brand-tag { font-size: 8pt; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; display: block; }
+.conf-pill { font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); border: 1px solid var(--border); padding: 6px 12px; border-radius: 2px; white-space: nowrap; }
+
+/* Hero */
+.hero { background: var(--ink); position: relative; padding: 40px 30px 35px; text-align: center; }
+.hero-lines { position: absolute; inset: 0; background-image: linear-gradient(rgba(176,141,56,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(176,141,56,.05) 1px, transparent 1px); background-size: 40px 40px; }
+.hero-glow { position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 100%; max-width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(176,141,56,.15) 0%, transparent 60%); }
+.hero-eyebrow { position: relative; display: inline-block; font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-l); margin-bottom: 15px; }
+.hero h1 { position: relative; font-size: clamp(24pt, 5vw, 34pt); color: var(--white); margin-bottom: 12px; }
+.hero h1 em { font-style: italic; color: var(--gold-l); }
+.hero-sub { position: relative; font-size: clamp(10pt, 3vw, 12pt); color: rgba(255,255,255,.6); margin: 0; }
+.gold-bar { height: 3px; background: linear-gradient(90deg, var(--gold-rule), var(--gold-l), var(--gold-rule)); }
+
+/* Grids & Layouts */
+.content-body { padding: 30px; flex: 1; display: flex; flex-direction: column; gap: 25px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+
+/* KPI Strip */
+.kpi-strip { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--parchment); border-bottom: 1px solid var(--border); }
+.kpi-box { padding: 20px 10px; text-align: center; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.kpi-box:last-child { border-right: none; }
+.kpi-val { font-family: 'Cormorant Garamond', serif; font-size: clamp(18pt, 4vw, 22pt); font-weight: 700; color: var(--gold); display: block; line-height: 1; margin-bottom: 6px; }
+.kpi-lbl { font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--ink-light); }
+
+/* Sections */
+.sec-label { display: flex; align-items: center; gap: 10px; font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 8px; }
+.sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.sec-dark .sec-label { color: var(--gold-l); }
+.sec-dark .sec-label::after { background: rgba(176,141,56,.2); }
+.sec-title { font-size: clamp(18pt, 4vw, 22pt); color: var(--ink); margin-bottom: 12px; }
+.sec-title em { font-style: italic; color: var(--gold); }
+
+/* Cards */
+.sol-card { background: var(--parchment); padding: 20px; border-left: 3px solid var(--gold); margin-bottom: 15px; }
+.sol-card h4 { font-size: 13pt; color: var(--ink); margin-bottom: 6px; }
+.sol-card p { font-size: 10.5pt; margin-bottom: 0; line-height: 1.5; }
+
+.impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; border-top: 1px solid var(--border); padding-top: 20px; }
+.impact-card { text-align: center; background: var(--white); border: 1px solid var(--border); padding: 15px; }
+.imp-val { font-family: 'Cormorant Garamond', serif; font-size: 18pt; font-weight: 700; color: var(--ink); display: block; line-height: 1; margin-bottom: 6px; }
+.imp-lbl { font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); display: block; margin-bottom: 8px; }
+.imp-note { font-size: 9pt; line-height: 1.4; margin: 0; }
+
+/* Dark Section */
+.sec-dark { background: var(--ink); padding: 30px; color: var(--white); }
+.sec-dark .sec-title { color: var(--white); }
+.sec-dark p, .sec-dark li { color: rgba(255,255,255,.7); }
+.sec-dark li strong { color: var(--white); }
+
+/* Responsive Table */
+.table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 15px; border: 1px solid var(--border); }
+.fin-table { width: 100%; min-width: 600px; border-collapse: collapse; font-size: 10pt; }
+.fin-table th { padding: 12px; text-align: center; font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); background: var(--parchment); border-bottom: 2px solid var(--ink); white-space: nowrap; }
+.fin-table th:first-child { text-align: left; position: sticky; left: 0; z-index: 2; }
+.fin-table td { padding: 12px; text-align: center; border-bottom: 1px solid var(--border); color: var(--ink-mid); }
+.fin-table td:first-child { text-align: left; font-weight: 600; color: var(--ink); background: var(--parchment); position: sticky; left: 0; z-index: 1; border-right: 1px solid var(--border); }
+.r-ebitda td { font-weight: 600; color: var(--ink); }
+.r-pat td { font-weight: 700; color: var(--green); }
+.r-margin td { color: var(--gold); font-style: italic; }
+
+/* Cap Layout */
+.cap-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 25px; margin-top: 10px; }
+.cap-dark { background: var(--ink); padding: 25px; color: var(--white); }
+.cap-dark .cap-tag { font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-l); display: block; margin-bottom: 8px; }
+.cap-dark .cap-val { font-family: 'Cormorant Garamond', serif; font-size: 32pt; font-weight: 700; display: block; line-height: 1; margin-bottom: 20px; }
+.cap-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.1); font-size: 9.5pt; }
+.cap-row:last-child { border-bottom: none; }
+.cap-row strong { color: var(--gold-l); font-size: 12pt; font-family: 'Cormorant Garamond', serif; font-weight: 700; }
+.tranche { background: var(--parchment); padding: 15px 20px; border-left: 4px solid var(--ink); margin-bottom: 10px; }
+.tranche.t-eq { border-left-color: var(--gold-rule); }
+.tranche.t-pr { border-left-color: var(--green); }
+.t-lbl { font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); display: block; }
+.t-val { font-family: 'Cormorant Garamond', serif; font-size: 18pt; font-weight: 700; color: var(--ink); display: block; margin: 4px 0; }
+.t-desc { font-size: 9.5pt; margin: 0; line-height: 1.4; }
+
+/* Footer */
+.footer { background: var(--parchment); padding: 30px; text-align: center; border-top: 1px solid var(--border); margin-top: auto; }
+.footer h3 { font-size: 16pt; color: var(--ink); margin-bottom: 10px; }
+.contact-box { display: inline-block; background: var(--white); border: 1px solid var(--border); padding: 15px 25px; font-size: 11pt; font-weight: 600; color: var(--ink); margin: 15px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+.disclaimer { font-size: 7.5pt; color: var(--muted); line-height: 1.5; text-transform: uppercase; max-width: 800px; margin: 0 auto; }
+
+/* =========================================
+   RESPONSIVE QUERIES (Mobile & Tablet)
+   ========================================= */
+@media (max-width: 900px) {
+  .two-col, .cap-layout { grid-template-columns: 1fr; gap: 20px; }
+  .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+  .kpi-box { border-bottom: 1px solid var(--border); }
+  .kpi-box:nth-child(even) { border-right: none; }
+  .impact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  body { padding: 0; background: var(--white); gap: 0; }
+  .a4-page { box-shadow: none; border-bottom: 8px solid var(--parchment); }
+  .topbar { flex-direction: column; gap: 15px; text-align: center; padding: 20px; }
+  .brand { flex-direction: column; }
+  .hero { padding: 40px 20px; }
+  .content-body, .sec-dark, .footer { padding: 20px; }
+}
+
+/* =========================================
+   PRINT CSS (For PDF Generation / Ctrl+P)
+   ========================================= */
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  body { padding: 0; background: #fff; display: block; }
+  .a4-page { box-shadow: none; max-width: 100%; height: 100vh; overflow: hidden; page-break-after: always; }
+  .kpi-strip { grid-template-columns: repeat(4, 1fr); }
+  .two-col, .cap-layout { grid-template-columns: 1fr 1fr; }
+  .impact-grid { grid-template-columns: repeat(3, 1fr); }
+  .table-wrapper { overflow: visible; border: none; }
+  .fin-table { min-width: 100%; }
+  
+  /* Minor print adjustments to ensure it fits perfectly */
+  .content-body { padding: 8mm 12mm; gap: 6mm; }
+  .hero { padding: 10mm 12mm; }
+  .sec-dark { padding: 10mm 12mm; }
+  .footer { padding: 6mm 12mm; }
+}
+</style>
+</head>
+<body>
+
+<div class="a4-page">
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-box"><span>NW2</span></div>
+      <div>
+        <span class="brand-name">Project NW2</span>
+        <span class="brand-tag">Confidential Investment Opportunity</span>
+      </div>
+    </div>
+    <div class="conf-pill">Strictly Confidential</div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-lines"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-eyebrow">Investment Teaser &nbsp;·&nbsp; State-Backed Infrastructure</div>
+    <h1>Integrated Shipyard &amp; <em>Container Line</em></h1>
+    <p class="hero-sub">India's First Private Shipyard and Captive Fleet on National Waterways 2 (Brahmaputra, Assam)</p>
+  </div>
+  <div class="gold-bar"></div>
+
+  <div class="kpi-strip">
+    <div class="kpi-box"><span class="kpi-val">46.7%</span><span class="kpi-lbl">Equity IRR</span></div>
+    <div class="kpi-box"><span class="kpi-val">~4.4 Yrs</span><span class="kpi-lbl">Capital Payback</span></div>
+    <div class="kpi-box"><span class="kpi-val">₹160 Cr</span><span class="kpi-lbl">Phase 1 Capital</span></div>
+    <div class="kpi-box"><span class="kpi-val" style="color:var(--ink)">Only 1</span><span class="kpi-lbl">First-Mover Position</span></div>
+  </div>
+
+  <div class="content-body">
+    <div class="two-col">
+      <div>
+        <div class="sec-label">The Macro Tailwind</div>
+        <h2 class="sec-title">Assam is Booming.<br><em>Its Freight System Isn't.</em></h2>
+        <p>Assam is India's single fastest-growing major state economy, but its freight system is bottlenecked. The Brahmaputra River sits idle as a freight superhighway.</p>
+        <ul>
+          <li><strong>Massive Capital Influx:</strong> State GSDP grew 45% (FY20–FY25). Advantage Assam 2.0 attracted ₹5.18 Lakh Crore in investment pledges.</li>
+          <li><strong>Road & Rail Near Capacity:</strong> Every tonne of industrial cargo must travel the congested Kolkata–Guwahati corridor. Road haulage is heavily inflated at ~₹3,000 per tonne for bulk commodities.</li>
+          <li><strong>No Local Infrastructure:</strong> There is no commercial shipbuilding infrastructure anywhere in the Northeast. Existing vessels must be procured and serviced 2,500+ km away.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="sec-label">The Solution</div>
+        <h2 class="sec-title">One Integrated Platform<br><em>to Unlock It All</em></h2>
+        <p>This project builds the missing third option: a shipyard that manufactures the fleet, and a dedicated liner service that operates it.</p>
+        
+        <div class="sol-card">
+          <h4>Component 01: Greenfield Shipyard</h4>
+          <p>A 10-acre riverfront manufacturing yard capable of building vessels up to 5,000 DWT. Equipped with robotic panel lines. <strong>India's only commercial shipyard in the Northeast by a margin of 2,500 km.</strong></p>
+        </div>
+        
+        <div class="sol-card" style="border-left-color: var(--ink);">
+          <h4>Component 02: Captive Hybrid Liner</h4>
+          <p>40 hybrid-propulsion (biodiesel-electric) container vessels, purpose-built for year-round NW-2 operations. Routes connect Guwahati to Kolkata, Dhubri to Bangladesh, and Haldia to Myanmar.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="impact-grid">
+      <div class="impact-card">
+        <span class="imp-val">~67% Reduction</span>
+        <span class="imp-lbl">Freight Cost per Tonne</span>
+        <p class="imp-note">Slashes transport costs from ~₹3,000 by road to ~₹1,000 by waterway.</p>
+      </div>
+      <div class="impact-card">
+        <span class="imp-val">1 MTPA</span>
+        <span class="imp-lbl">Cargo Capacity Target</span>
+        <p class="imp-note">Serving cement, steel, FMCG, and agri clients within 4 years.</p>
+      </div>
+      <div class="impact-card">
+        <span class="imp-val">Uncontested</span>
+        <span class="imp-lbl">Absolute Monopoly</span>
+        <p class="imp-note">Zero private competition currently operating on NW-2. Sets the tariffs & rules.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="a4-page">
+  <div class="sec-dark">
+    <div class="sec-label">The Moat</div>
+    <h2 class="sec-title">State Backed &amp; <em>Operationally Proven</em></h2>
+    <p>This project is not just a commercial venture; it is state-sanctioned, strategic infrastructure solving a government-level bottleneck.</p>
+    
+    <div class="two-col" style="margin-top:20px;">
+      <div>
+        <h4 style="color:var(--gold-l); margin-bottom:10px;">Dual-Layer Government Support</h4>
+        <ul>
+          <li><strong>Host State Incentives (Sanctioned):</strong> 60-year riverfront land lease, 30% capital investment subsidy (capped at ₹100 Cr), multi-year state GST reimbursement, and 100% electricity duty waiver.</li>
+          <li><strong>Central Govt Schemes:</strong> Shipbuilding capital subsidy on hybrid vessels, cargo promotion reimbursements, and Northeast development interest subventions on project debt.</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:var(--gold-l); margin-bottom:10px;">Promoter Pedigree</h4>
+        <ul>
+          <li><strong>30+ Years Experience:</strong> Active operator of ports, shipyards, and logistics infrastructure across 4 countries with 650+ employees.</li>
+          <li><strong>Already on NW-2:</strong> The group <em>currently</em> manages the Pandu and Dhubri Terminals on NW-2 under IWAI. We already control the terminal infrastructure, the labour ecosystem, and the anchor cargo relationships.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-body">
+    <div>
+      <div class="sec-label">Financial Trajectory</div>
+      <h2 class="sec-title">Conservative 10-Year Projections</h2>
+      <p style="margin-bottom:0;">The project is EBITDA-positive from Year 1, and achieves strong PAT and cash-flow positivity from Year 2 onwards. Post-subsidy figures.</p>
+      
+      <div class="table-wrapper">
+        <table class="fin-table">
+          <thead>
+            <tr>
+              <th>Metric (₹ Lakhs)</th>
+              <th>Year 1</th><th>Year 3</th><th>Year 5</th><th>Year 7</th><th>Year 10</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Total Revenue</td>
+              <td>1,114</td><td>32,084</td><td>60,665</td><td>89,566</td><td>138,171</td>
+            </tr>
+            <tr class="r-ebitda">
+              <td>EBITDA</td>
+              <td>118</td><td>12,933</td><td>27,020</td><td>39,944</td><td>60,483</td>
+            </tr>
+            <tr class="r-pat">
+              <td>Profit After Tax</td>
+              <td>(890)</td><td>9,451</td><td>22,327</td><td>34,548</td><td>54,688</td>
+            </tr>
+            <tr class="r-margin">
+              <td>PAT Margin</td>
+              <td>-</td><td>29%</td><td>37%</td><td>39%</td><td>40%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div>
+      <div class="sec-label">The Ask</div>
+      <h2 class="sec-title">Phase 1 Capital Layout</h2>
+      
+      <div class="cap-layout">
+        <div class="cap-dark">
+          <span class="cap-tag">Total Phase 1</span>
+          <span class="cap-val">₹160 Cr</span>
+          <div class="cap-row"><span>Post-Money Valuation</span><strong>₹250 Cr</strong></div>
+          <div class="cap-row"><span>External Equity Offered</span><strong>40%</strong></div>
+          <div class="cap-row" style="border:none;"><span>Capital Payback</span><strong>~4.4 Yrs</strong></div>
+        </div>
+        
+        <div>
+          <div class="tranche t-eq">
+            <span class="t-lbl">Strategic External Equity</span>
+            <span class="t-val">₹100 Crore</span>
+            <p class="t-desc">Deployed towards shipyard construction, fit-out, and working capital. 40% equity stake.</p>
+          </div>
+          <div class="tranche">
+            <span class="t-lbl">Structured Term Debt</span>
+            <span class="t-val">₹40 Crore</span>
+            <p class="t-desc">Asset-backed vessel and equipment finance. Long-duration infrastructure debt profile.</p>
+          </div>
+          <div class="tranche t-pr">
+            <span class="t-lbl">Promoter Contribution</span>
+            <span class="t-val">₹20 Crore</span>
+            <p class="t-desc">Direct cash deployed alongside project IP, NW-2 port operational control, and anchor cargo base.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <h3>Interested in the Full DPR and Financial Model?</h3>
+    <p style="margin-bottom: 5px;">We welcome discussions with strategic institutions, infrastructure funds, and equity investors.</p>
+    <div class="contact-box">Contact: [Insert Contact Name] at [Insert Email Address]</div>
+    <p class="disclaimer">Strictly Confidential · For intended recipients only. This document does not constitute an offer or solicitation for investment. All financial projections are based on modelled assumptions and are not guaranteed. Prospective investors should conduct independent due diligence. Do not reproduce or distribute.</p>
+  </div>
+</div>
+
+</body>
+</html>
